@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Websocket Client</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>WebSocket Client</h1>
+
+  <div class="form-group">
+    <label for="socketUrl">WebSocket URL</label>
+    <input type="text" id="socketUrl" value="http://localhost:8080/ws" />
+  </div>
+
+  <button id="connectButton">Connect</button>
+  <button id="disconnectButton" disabled>Disconnect</button>
+
+  <div class="form-group">
+    <label for="apiUrl">API URL</label>
+    <input type="text" id="apiUrl" value="/app/enterRoom" />
+  </div>
+
+  <div class="form-group">
+    <label>Headers</label>
+    <div id="headersContainer">
+      <div class="header-fields">
+        <input type="text" class="header-key" value="userId" />
+        <input type="text" class="header-value" value=1 />
+      </div>
+    </div>
+    <button id="addHeaderButton">Add Header</button>
+  </div>
+
+  <div class="form-group">
+    <label for="body">Body (JSON 형식)</label>
+    <textarea id="body">{"roomId":1}</textarea>
+  </div>
+
+  <button id="sendRequestButton" disabled>Send Request</button>
+
+  <div class="form-group">
+    <label for="subscriptionPath">구독 경로</label>
+    <input type="text" id="subscriptionPath" value="/queue/user/1" />
+    <button id="subscribeButton" disabled>Subscribe</button>
+  </div>
+
+  <h2>Subscribed Topics and Received Messages</h2>
+  <div id="subscribedPaths"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/stompjs/lib/stomp.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sockjs-client/dist/sockjs.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
